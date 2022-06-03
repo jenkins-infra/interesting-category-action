@@ -11,13 +11,18 @@ inputs:
       By default excludes 📦📝👻🚦 under the assumption these do not normally merit a release.
       An output of interesting = true/false will be set, the 'workflow_dispatch' (explicit release) is always 'interesting'.
     default: '[💥🚨🎉🐛⚠🚀🌐👷]|:(boom|tada|construction_worker):'
+  RELEASE_DRAFT_BODY:
+    required: false
+    description: |
+      Release draft body produced by release drafter github action
+    default: ""
 outputs:
   interesting:
     description: whether the category is interesting or not, true / false will be the result
     value: ${{ steps.interesting-category.outputs.interesting }}
 runs:
   using: composite
-  steps: 
+  steps:
     - run: GITHUB_TOKEN=${{ inputs.GITHUB_TOKEN }} INTERESTING_CATEGORIES='${{ inputs.INTERESTING_CATEGORIES }}' $GITHUB_ACTION_PATH/run.sh
       id: interesting-category
       shell: bash
