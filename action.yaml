@@ -26,3 +26,5 @@ runs:
     - run: GITHUB_TOKEN=${{ inputs.GITHUB_TOKEN }} INTERESTING_CATEGORIES='${{ inputs.INTERESTING_CATEGORIES }}' $GITHUB_ACTION_PATH/run.sh
       id: interesting-category
       shell: bash
+      env:
+        RELEASE_DRAFT_BODY: ${{ inputs.RELEASE_DRAFT_BODY }}
