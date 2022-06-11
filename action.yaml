@@ -14,7 +14,7 @@ inputs:
   RELEASE_DRAFT_BODY:
     required: false
     description: |
-      Release draft body produced by release drafter github action
+      Release draft body produced by `release-drafter/release-drafter` action; defaults to looking for a draft release named `next`
     default: ""
 outputs:
   interesting:
