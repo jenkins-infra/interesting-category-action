@@ -9,10 +9,10 @@ then
 
     if echo "$RELEASE_DRAFT_BODY" | egrep "$INTERESTING_CATEGORIES"
     then
-      echo "::set-output name=interesting::true"
+      echo "interesting=true" >> $GITHUB_OUTPUT
     else
-      echo "::set-output name=interesting::false"
+      echo "interesting=false" >> $GITHUB_OUTPUT
     fi
 else
-  echo "::set-output name=interesting::true"
+  echo "interesting=true" >> $GITHUB_OUTPUT
 fi
